@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
-      redirect_to :back
+      redirect_back
     else
       flash[:notice] = "Something wrong happening... Try again later."
       redirect_to :back
