@@ -1,12 +1,6 @@
 <h1>
-  Timeline
+  Timeline of @<%= current_user.username %>
 </h1>
-<%= current_user.username %> you have [] followers
-
-<hr />
-
-<%#= render @post, :new %>
-
-<hr />
-
-<%#= render @posts %>
+<div style="padding: 20px; width: 100%; background: #f1f1f1; border: 1px solid #ccc;">
+  <%= render @posts || 'You need create posts first' %>
+</div>
