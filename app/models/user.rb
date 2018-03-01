@@ -4,6 +4,23 @@ class User < ApplicationRecord
 
   has_many :posts
 
+  has_many :follower
+
+  has_many :following,
+    through: :follower,
+    class_name: 'Follower',
+    foreign_key: 'following_id'
+
+  has_many :followed,
+    through: :follower,
+    class_name: 'Follower',
+    foreign_key: 'followed_id'
+
+  #
+  # has_many :follower,
+  # through: :follower,
+  # source: :users
+
   validates :username,
     presence: true
 

@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228151801) do
+ActiveRecord::Schema.define(version: 20180301114355) do
+
+  create_table "followers", force: :cascade do |t|
+    t.integer "following_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_followers_on_followed_id"
+    t.index ["following_id"], name: "index_followers_on_following_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.text "body"
-    t.integer "User_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["User_id"], name: "index_posts_on_User_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

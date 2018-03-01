@@ -1,10 +1,9 @@
 class Post < ApplicationRecord
-  belongs_to :User
+  belongs_to :user
 
-  validates do
-
-    if body.length > 280 || body.length == 0 do
-      errors.add(:body, "U need put a message with the length between 0 and 280 characters")
+  validate do
+    if body.length > 280
+      errors.add(:body, "You need put a message with the max of 280 characters")
     end
   end
 end
