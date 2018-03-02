@@ -4,17 +4,33 @@ class User < ApplicationRecord
 
   has_many :posts
 
-  has_many :follower
+  has_many :followers
+
+  has_many :followed,
+    class_name: 'Follower',
+    foreign_key: 'followed_id'
 
   has_many :following,
-    through: :follower,
     class_name: 'Follower',
     foreign_key: 'following_id'
 
-  has_many :followed,
-    through: :follower,
-    class_name: 'Follower',
-    foreign_key: 'followed_id'
+  # has_many :following,
+  #   through: :follower,
+  #   class_name: 'User',
+  #   foreign_key: 'following_id'
+
+  # has_many :followers
+
+  # has_many :followed,
+  #   through: :follower,
+  #   source :followed
+    # class_name: 'Follower',
+    # foreign_key: 'followed_id'
+
+
+    # through: :followers,
+    # source: :followed
+    # through: :follower
 
   #
   # has_many :follower,
