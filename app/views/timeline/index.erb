@@ -2,5 +2,9 @@
   Timeline of @<%= current_user.username %>
 </h1>
 <div style="padding: 20px; width: 100%; background: #f1f1f1; border: 1px solid #ccc;">
-  <%= render @posts || 'You need create posts first' %>
+  <% if @posts %>
+    <%= render @posts  %>
+  <% else %>
+    "You need create posts first"
+  <% end %>
 </div>
