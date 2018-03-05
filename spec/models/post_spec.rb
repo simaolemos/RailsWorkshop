@@ -5,11 +5,11 @@ RSpec.describe Post, type: :model do
   context "Should support any test" do
 
     before do
-      user = User.create!(email: "test1@test.com", username: "test", password: '123321')
+      @User = User.create!(email: "test1@test.com", username: "test", password: '123321')
     end
 
     it "Should insert a new post" do
-      post = Post.new(body: "Fuck U MotherFucker", user_id: 1)
+      post = @User.posts.new(body: "Fuck U MotherFucker", user_id: 1)
       expect(post.save).to eq(true)
     end
 
