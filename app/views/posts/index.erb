@@ -2,6 +2,8 @@
 
 <ul>
   <% @posts.each do |post| %>
+    #ID: <%= post.id %> <br />
     Body: <%= post.body %> <br />
+    <hr>
   <% end %>
 </ul>
