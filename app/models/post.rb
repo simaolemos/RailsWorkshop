@@ -8,4 +8,6 @@ class Post < ApplicationRecord
   end
 
   include Censorship
+
+  # include Censorship
 end
