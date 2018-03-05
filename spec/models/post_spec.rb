@@ -15,7 +15,7 @@ RSpec.describe Post, type: :model do
 
 
     it "Should check if the post has are censured" do
-      post = Post.new(body: "Fuck U MotherFucker", user_id: 1)
+      post = @User.posts.new(body: "Fuck U MotherFucker", user_id: 1)
       post.save!
 
       expect(post.body).to eq("REDACTED U MotherREDACTEDer")
