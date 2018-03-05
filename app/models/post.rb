@@ -7,8 +7,5 @@ class Post < ApplicationRecord
     end
   end
 
-  before_save do
-    response = HTTParty.get("http://poopfilter.herokuapp.com/filter?text=#{self.body}")
-    self.body = JSON.parse(response.body)["output"]
-  end
+  include Censorship
 end
