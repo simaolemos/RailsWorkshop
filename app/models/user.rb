@@ -42,4 +42,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+   def timeline_posts
+     Post.where(user_id: followed_ids + [id])
+   end
 end
