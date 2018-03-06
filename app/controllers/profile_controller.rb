@@ -1,13 +1,18 @@
 class ProfileController < ApplicationController
 
-  def index
-    if(current_user?)
-      user = User.find(current_user.id)
-    end
-    
-    @post = Post.new
-    @posts = user.posts
+  before_action :setUser
 
+  def index
+
+    @post = current_user.posts.new
+    @posts = @user.posts
+
+  end
+
+  private
+
+  def setUser
+    @user = User.find_by({ username: params[:username] })
   end
 
 end

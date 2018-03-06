@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  get 'profile', to: 'profile#index'
+  get 'profile/:username', to: 'profile#index', as: 'profile'
 
   root to: 'timeline#index'
 

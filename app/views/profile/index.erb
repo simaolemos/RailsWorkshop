@@ -1,4 +1,7 @@
+<h1>
+  Timeline of @<%= @user.username %>
+</h1>
 <div style="padding: 20px; width: 100%; background: #f1f1f1; border: 1px solid #ccc;">
-  <%= render 'posts/new', post: @post  %>
-  <%= render @posts || 'You need create posts first' %>
+  <%= render 'posts/form', post: @post  %>
+  <%= render @posts || 'Without any post' %>
 </div>
